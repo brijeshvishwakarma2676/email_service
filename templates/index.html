@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title | default('Notification Protocol') }}</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #F8F9FA;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrapper {
+      width: 100%;
+      background-color: #F8F9FA;
+      padding: 40px 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #FFFFFF;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      border: 1px solid #EAEAEA;
+    }
+    .header {
+      background-color: #0A0A0B;
+      padding: 40px;
+      text-align: center;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      color: #FFFFFF;
+      font-style: italic;
+      margin: 0;
+    }
+    .logo-subtitle {
+      font-size: 8px;
+      font-weight: 900;
+      letter-spacing: 0.3em;
+      color: #888888;
+      text-transform: uppercase;
+      margin-top: 4px;
+      display: block;
+    }
+    .content {
+      padding: 40px;
+    }
+    .heading {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0A0A0B;
+      margin-top: 0;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .body-text {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #4A4A4A;
+      margin-bottom: 24px;
+    }
+    .button-container {
+      text-align: center;
+      margin: 32px 0 16px 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background-color: #0A0A0B;
+      color: #FFFFFF !important;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+    }
+    .footer {
+      background-color: #FAFAFA;
+      padding: 30px 40px;
+      text-align: center;
+      border-top: 1px solid #EAEAEA;
+    }
+    .footer-text {
+      font-size: 11px;
+      color: #888888;
+      line-height: 1.5;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      
+      <!-- Brand Header -->
+      <div class="header">
+        <h1 class="logo">LUMINA</h1>
+        <span class="logo-subtitle">Enterprise</span>
+      </div>
+
+      <!-- Core Content -->
+      <div class="content">
+        {% if heading %}
+        <h2 class="heading">{{ heading }}</h2>
+        {% endif %}
+        
+        <div class="body-text">
+          {{ body | default('Welcome to Lumina! No additional text content was specified in this protocol transmission.') }}
+        </div>
+
+        {% if action_button_url and action_button_text %}
+        <div class="button-container">
+          <a href="{{ action_button_url }}" class="btn" target="_blank">{{ action_button_text }}</a>
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <p class="footer-text">
+          Lumina Automated Communication Protocol &bull; Secure Microservice Delivery<br>
+          If you did not initiate this action, please secure your administrative terminal.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
