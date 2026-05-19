@@ -42,7 +42,7 @@ def send_email_message(
     """
     smtp_from_email = sender_email or settings.DEFAULT_FROM_EMAIL
     
-    # Format 'From' field: e.g. "Lumina Protocol <no-reply@lumina.com>"
+    # Format 'From' field: e.g. "PointNest Protocol <no-reply@pointnest.com>"
     if sender_name:
         from_display = f"{sender_name} <{smtp_from_email}>"
     else:

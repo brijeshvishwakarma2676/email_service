@@ -26,7 +26,7 @@ logging.basicConfig(
 logger = logging.getLogger("email_service")
 
 app = FastAPI(
-    title="Lumina Generic Email Service",
+    title="PointNest Generic Email Service",
     description="A highly reliable, generic microservice for templates and email dispatching.",
     version="1.0.0"
 )
@@ -54,11 +54,11 @@ def health_check():
     return {"status": "healthy", "service": "generic-email-service"}
 
 if __name__ == "__main__":
-    logger.info("Initializing Lumina Generic Email Service...")
+    logger.info("Initializing PointNest Generic Email Service...")
     uvicorn.run(
         app="main:app",
         host="0.0.0.0",
-        port=8005,
+        port=8006,
         reload=True,
         reload_dirs=["app", "templates"],
         reload_excludes=["*.log", "app.log"]

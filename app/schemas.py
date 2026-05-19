@@ -35,7 +35,7 @@ class EmailSendRequest(BaseModel):
     )
     sender_name: Optional[str] = Field(
         None, 
-        description="Optional friendly name of the sender (e.g. 'Lumina Protocol')."
+        description="Optional friendly name of the sender (e.g. 'PointNest Protocol')."
     )
 
     @field_validator("to_email")

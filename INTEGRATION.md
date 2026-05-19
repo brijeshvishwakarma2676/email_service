@@ -1,6 +1,6 @@
-# Lumina Generic Email Service — Integration Protocol
+# PointNest Generic Email Service — Integration Protocol
 
-Welcome to the **Lumina Generic Email Service** integration guide. This microservice provides an extremely fast, secure, and reliable pipeline to deliver HTML templates and raw text emails using standard SMTP infrastructure.
+Welcome to the **PointNest Generic Email Service** integration guide. This microservice provides an extremely fast, secure, and reliable pipeline to deliver HTML templates and raw text emails using standard SMTP infrastructure.
 
 ---
 
@@ -8,7 +8,7 @@ Welcome to the **Lumina Generic Email Service** integration guide. This microser
 
 All outbound requests to this service must be authenticated and conform to the following specifications:
 
-*   **Base URL**: `http://localhost:8005/api/v1`
+*   **Base URL**: `http://localhost:8006/api/v1`
 *   **Authentication Header**: `X-API-Key`
     > [!IMPORTANT]
     > The request will fail with a `401 Unauthorized` error if the `X-API-Key` header is missing or does not match the key configured in the `.env` file of the email service.
@@ -32,7 +32,7 @@ All outbound requests to this service must be authenticated and conform to the f
 | **`template_name`** | `str` | *No* | Name of a template file inside the `/templates` folder (e.g. `"index.html"`). |
 | **`template_context`** | `dict` | *No* | Key-value pairs for dynamic variable interpolation inside the selected Jinja2 template. |
 | **`sender_email`** | `str` | *No* | Override the default `From` address. Must be supported/allowed by your SMTP server config. |
-| **`sender_name`** | `str` | *No* | A friendly display name for the sender (e.g. `"Lumina Support"`). |
+| **`sender_name`** | `str` | *No* | A friendly display name for the sender (e.g. `"PointNest Support"`). |
 
 ---
 
@@ -42,7 +42,7 @@ Here is how you can connect your existing portals and platforms to this email se
 
 ### 1. Bash / cURL
 ```bash
-curl -X POST "http://localhost:8005/api/v1/send" \
+curl -X POST "http://localhost:8006/api/v1/send" \
      -H "Content-Type: application/json" \
      -H "X-API-Key: your-configured-api-key" \
      -d '{
@@ -54,7 +54,7 @@ curl -X POST "http://localhost:8005/api/v1/send" \
          "heading": "Verify Outbound Protocol",
          "body": "Your loyalty portal analytics system has been updated. Please click the button below to verify the synchronization."
        },
-       "sender_name": "Lumina Protocol Support"
+       "sender_name": "PointNest Protocol Support"
      }'
 ```
 
@@ -63,21 +63,21 @@ curl -X POST "http://localhost:8005/api/v1/send" \
 import requests
 
 def dispatch_email(recipient: str, heading: str, body: str):
-    url = "http://localhost:8005/api/v1/send"
+    url = "http://localhost:8006/api/v1/send"
     headers = {
         "Content-Type": "application/json",
         "X-API-Key": "your-configured-api-key"
     }
     payload = {
         "to_email": recipient,
-        "subject": f"Lumina Update: {heading}",
+        "subject": f"PointNest Update: {heading}",
         "template_name": "index.html",
         "template_context": {
             "title": "Account Notification",
             "heading": heading,
             "body": body
         },
-        "sender_name": "Lumina Automated Relay"
+        "sender_name": "PointNest Automated Relay"
     }
 
     try:
@@ -92,7 +92,7 @@ def dispatch_email(recipient: str, heading: str, body: str):
 ### 3. JavaScript (Modern Fetch API / Node.js)
 ```javascript
 async function sendNotification(recipient, title, message) {
-  const url = "http://localhost:8005/api/v1/send";
+  const url = "http://localhost:8006/api/v1/send";
   
   const payload = {
     to_email: recipient,
@@ -103,7 +103,7 @@ async function sendNotification(recipient, title, message) {
       heading: title,
       body: message
     },
-    sender_name: "Lumina Control Center"
+    sender_name: "PointNest Control Center"
   };
 
   try {

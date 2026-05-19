@@ -102,8 +102,8 @@
       
       <!-- Brand Header -->
       <div class="header">
-        <h1 class="logo">LUMINA</h1>
-        <span class="logo-subtitle">Enterprise</span>
+        <h1 class="logo">POINTNEST</h1>
+        <span class="logo-subtitle">Loyalty Portal</span>
       </div>
 
       <!-- Core Content -->
@@ -113,7 +113,7 @@
         {% endif %}
         
         <div class="body-text">
-          {{ body | default('Welcome to Lumina! No additional text content was specified in this protocol transmission.') }}
+          {{ body | default('Welcome to PointNest! No additional text content was specified in this loyalty transmission.') | safe }}
         </div>
 
         {% if action_button_url and action_button_text %}
@@ -126,8 +126,8 @@
       <!-- Footer -->
       <div class="footer">
         <p class="footer-text">
-          Lumina Automated Communication Protocol &bull; Secure Microservice Delivery<br>
-          If you did not initiate this action, please secure your administrative terminal.
+          PointNest Automated Loyalty Protocol &bull; Secure Microservice Delivery<br>
+          If you did not initiate this action, please contact your store support.
         </p>
       </div>
 

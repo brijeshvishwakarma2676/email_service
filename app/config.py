@@ -17,6 +17,6 @@ class Settings(BaseSettings):
     SMTP_USE_SSL: bool = Field(default=False)
     
     DEFAULT_FROM_EMAIL: str = Field(default="your-email@gmail.com")
-    API_KEY: str = Field(default="lumina-secure-email-key-2026")
+    API_KEY: str = Field(default="pointnest-secure-email-key-2026")
 
 settings = Settings()

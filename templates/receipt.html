@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Success — PointNest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f6f8;
+      color: #333333;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrapper {
+      width: 100%;
+      table-layout: fixed;
+      background-color: #f4f6f8;
+      padding: 30px 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    /* Header: Premium PointNest Noir Sleek Gradient */
+    .header {
+      background: linear-gradient(135deg, #0a0a0b 0%, #121214 50%, #1e1e24 100%);
+      padding: 35px 40px;
+      text-align: center;
+      position: relative;
+    }
+    .logo-container {
+      display: inline-block;
+    }
+    .logo-main {
+      font-size: 26px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 2px;
+      margin: 0;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .logo-sub {
+      font-size: 10px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: 4px;
+      margin-top: 5px;
+      text-transform: uppercase;
+      display: block;
+    }
+    /* Content Area */
+    .content {
+      padding: 40px;
+    }
+    .greeting {
+      font-size: 16px;
+      font-weight: 500;
+      color: #4b5563;
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+    .status-text {
+      font-size: 18px;
+      line-height: 1.6;
+      font-weight: 400;
+      color: #1f2937;
+      margin-bottom: 30px;
+    }
+    .status-highlight {
+      font-weight: 600;
+      color: #0a0a0b;
+    }
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #0a0a0b;
+      letter-spacing: 1.5px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #f3f4f6;
+      padding-bottom: 6px;
+    }
+    /* Receipt Detail Grid */
+    .details-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 35px;
+    }
+    .details-row td {
+      padding: 12px 0;
+      border-bottom: 1px dashed #e5e7eb;
+      font-size: 15px;
+    }
+    .details-label {
+      color: #6b7280;
+      font-weight: 400;
+    }
+    .details-value {
+      color: #1f2937;
+      font-weight: 600;
+      text-align: right;
+    }
+    .details-value-green {
+      color: #10b981;
+      font-weight: 600;
+      text-align: right;
+    }
+    /* Concerns / Action Box */
+    .concerns-box {
+      background-color: #fef2f2;
+      border-left: 4px solid #ef4444;
+      border-radius: 8px;
+      padding: 15px 20px;
+      font-size: 14px;
+      color: #991b1b;
+      line-height: 1.5;
+      margin-bottom: 35px;
+    }
+    .concerns-link {
+      color: #ef4444;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+    .signoff {
+      font-size: 15px;
+      color: #4b5563;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+    .signoff-strong {
+      font-weight: 600;
+      color: #1f2937;
+    }
+    
+    /* Cross-sell / Promo Grid (PointNest alternates) */
+    .promo-section {
+      background-color: #f9fafb;
+      border-top: 1px solid #e5e7eb;
+      padding: 30px 40px;
+    }
+    .promo-title {
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      color: #0a0a0b;
+      margin-top: 0;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .promo-grid {
+      display: table;
+      width: 100%;
+    }
+    .promo-card {
+      display: table-cell;
+      width: 33.33%;
+      padding: 0 8px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .promo-card-inner {
+      background-color: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 15px 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    }
+    .promo-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+    .promo-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #374151;
+      margin: 0 0 10px 0;
+    }
+    .promo-btn {
+      display: inline-block;
+      background-color: #0a0a0b;
+      color: #ffffff !important;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 20px;
+      transition: background-color 0.2s;
+    }
+    
+    /* Footer Links & Socials */
+    .footer {
+      background-color: #f9fafb;
+      border-top: 1px solid #f3f4f6;
+      padding: 35px 40px;
+      text-align: center;
+    }
+    .footer-nav {
+      margin-bottom: 20px;
+    }
+    .footer-nav a {
+      color: #4b5563;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      margin: 0 12px;
+    }
+    .footer-nav span {
+      color: #d1d5db;
+    }
+    .social-links {
+      margin-bottom: 25px;
+    }
+    .social-icon {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      border: 1px solid #e5e7eb;
+      margin: 0 6px;
+    }
+    .social-icon img {
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+    }
+    .disclaimer {
+      font-size: 10px;
+      color: #9ca3af;
+      line-height: 1.6;
+      text-align: justify;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      
+      <!-- Brand Header -->
+      <div class="header">
+        <div class="logo-container">
+          <h1 class="logo-main">POINTNEST</h1>
+          <span class="logo-sub">Loyalty Ecosystem</span>
+        </div>
+      </div>
+
+      <!-- Core Content -->
+      <div class="content">
+        <p class="greeting">Dear {{ customer_name }},</p>
+        <p class="status-text">
+          You have successfully made a purchase of <span class="status-highlight">INR {{ "%.2f"|format(amount) }}</span> at <span class="status-highlight">{{ shop_name }}</span> through the PointNest Loyalty App.
+        </p>
+
+        <h3 class="section-title">More details below</h3>
+        <table class="details-table">
+          <tr class="details-row">
+            <td class="details-label">Transaction ID</td>
+            <td class="details-value">{{ transaction_id }}</td>
+          </tr>
+          <tr class="details-row">
+            <td class="details-label">Date</td>
+            <td class="details-value">{{ date }}</td>
+          </tr>
+          <tr class="details-row">
+            <td class="details-label">Points Earned</td>
+            <td class="details-value-green">+{{ points_earned }} pts</td>
+          </tr>
+          {% if points_redeemed > 0 %}
+          <tr class="details-row">
+            <td class="details-label">Points Redeemed</td>
+            <td class="details-value" style="color: #ef4444;">-{{ points_redeemed }} pts</td>
+          </tr>
+          {% endif %}
+          {% if savings > 0 %}
+          <tr class="details-row">
+            <td class="details-label">Total Savings</td>
+            <td class="details-value-green">₹{{ "%.2f"|format(savings) }}</td>
+          </tr>
+          {% endif %}
+          <tr class="details-row" style="border-bottom: none;">
+            <td class="details-label" style="font-weight: 500;">Active Point Balance</td>
+            <td class="details-value" style="color: #0a0a0b; font-size: 16px;">{{ points_balance }} points</td>
+          </tr>
+        </table>
+
+        <!-- Security Concerns Message -->
+        <div class="concerns-box">
+          Have concerns regarding this transaction? Report fraud instantly via our 
+          <a href="https://pointnest.com/support" class="concerns-link" target="_blank" style="color: #ef4444 !important; text-decoration: underline;">Online Portal</a> 
+          or contact us immediately at <strong style="color: #991b1b !important;">9699642659</strong>.
+        </div>
+
+        <p class="signoff">
+          Digitally yours,<br>
+          <span class="signoff-strong">PointNest Team</span>
+        </p>
+      </div>
+
+      <!-- Cross-sell Reward Recommendations -->
+      <div class="promo-section">
+        <h4 class="promo-title">Top Reward Redemptions for You</h4>
+        <div class="promo-grid">
+          <div class="promo-card">
+            <div class="promo-card-inner">
+              <span class="promo-icon">☕</span>
+              <p class="promo-name">Free Coffee</p>
+              <a href="#" class="promo-btn" style="color: #ffffff !important; background-color: #0a0a0b; text-decoration: none;">100 Pts</a>
+            </div>
+          </div>
+          <div class="promo-card">
+            <div class="promo-card-inner">
+              <span class="promo-icon">🛍️</span>
+              <p class="promo-name">Shopping Voucher</p>
+              <a href="#" class="promo-btn" style="color: #ffffff !important; background-color: #0a0a0b; text-decoration: none;">500 Pts</a>
+            </div>
+          </div>
+          <div class="promo-card">
+            <div class="promo-card-inner">
+              <span class="promo-icon">✈️</span>
+              <p class="promo-name">Flight Discount</p>
+              <a href="#" class="promo-btn" style="color: #ffffff !important; background-color: #0a0a0b; text-decoration: none;">1000 Pts</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer & Disclaimers -->
+      <div class="footer">
+        <div class="footer-nav">
+          <a href="#" target="_blank">Copyright</a>
+          <span>|</span>
+          <a href="#" target="_blank">Disclaimer</a>
+          <span>|</span>
+          <a href="#" target="_blank">Privacy Policy</a>
+        </div>
+
+        <!-- Social Icons (PointNest branding styling) -->
+        <div class="social-links">
+          <a href="#" class="social-icon" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/50/0a0a0b/instagram-new.png" alt="Instagram">
+          </a>
+          <a href="#" class="social-icon" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/50/0a0a0b/facebook-new.png" alt="Facebook">
+          </a>
+          <a href="#" class="social-icon" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/50/0a0a0b/twitterx--v2.png" alt="Twitter">
+          </a>
+          <a href="#" class="social-icon" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/50/0a0a0b/youtube-play.png" alt="YouTube">
+          </a>
+        </div>
+
+        <div class="disclaimer">
+          Loyalty rewards and point redemptions are subject to program terms and conditions, read all terms related to the merchant loyalty agreements before redeeming points. PointNest is a loyalty program platform offered in partnership with registered merchants. Point redemptions have no direct cash value unless specified by the issuing merchant and are subject to expiration rules.
+        </div>
+        <div class="disclaimer" style="margin-bottom: 0;">
+          Please do not reply to this email as this is an automated mail notification system. If you do not wish to receive transactional records for this account, please update your notifications settings.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
